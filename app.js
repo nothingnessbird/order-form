@@ -50,4 +50,30 @@ function harvestProductForm(event){
   event.target.reset();
 }
 
+// orderObject.street
+
+function renderCartImage () {
+  for (var i = 0; i < productArray.length; i ++){
+    var imageSection = document.getElementById('cart');
+    var divSection = document.createElement('div');
+    imageSection.appendChild(divSection);
+    var customerCart = document.createElement('img');
+    customerCart.src = 'img/' + productArray[i].fileLink;
+    divSection.appendChild(customerCart);
+      }
+    };
+    renderCartImage();
+    var qty = document.createElement('p');
+    // var trashCan = document.createElement('img');
+    // itemPic.setAttribute('src', productArray[i]);
+    // itemPic.id = productArray[i];
+    // trashCan.src = 'img/trashCan.png';
+    // box.appendChild(itemPic);
+    // qty.innerText = 'Qty: ' + qtyArray[i];
+    // box.appendChild(qty);
+    // box.appendChild(trashCan);
+    // position1.appendChild(box);
+    // box.id = productArray[i];
+    // itemPic.addEventListener('click',removeItem);
+
 var submitStore = document.getElementById('form').addEventListener('submit', harvestProductForm);

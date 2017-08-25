@@ -1,7 +1,7 @@
 'use strict';
 
 var productFiles = ['bag.jpg','banana.jpg','bathroom.jpg','boots.jpg','breakfast.jpg','bubblegum.jpg','chair.jpg','cthulhu.jpg','dog-duck.jpg','dragon.jpg','pen.jpg','pet-sweep.jpg','scissors.jpg','shark.jpg','sweep.png','tauntaun.jpg','unicorn.jpg','usb.gif','water-can.jpg','wine-glass.jpg'];
-
+var customerCart = [];
 
 function Product(name,fileLink) {
   this.name = name;
@@ -22,20 +22,19 @@ productMaker();
 
 function harvestProductForm(event){
   event.preventDefault();
-  var productSelected = this.elements['select'].value;
-  var productNum = this.elements['product-num'].value;
-  var custName = parseInt(this.elements['cust-name'].value);
-  var street = parseInt(this.elements['street'].value);
-  var city = parseFloat(this.elements['city'].value);
-  var state = parseInt(this.elements['state'].value);
-  var zip = parseInt(this.elements['zip'].value);
-  var card = parseFloat(this.elements['card'].value);
+  var productSelected = event.target.elements.select.value;
+  var productNum = event.target.elements.productNum.value;
+  var custName = event.target.elements.name.value;
+  var street = event.target.elements.street.value;
+  var city = event.target.elements.city.value;
+  var state = event.target.elements.state.value;
+  var zip = event.target.elements.zip.value;
+  var card = event.target.elements.card.value;
   for (var i = 0; i < productArray.length; i++) {
     if (productSelected === productArray[i].name) {
-      filePath = productArray[i].fileLink;
+      var filePath = productArray[i].fileLink;
     }
   }
-
   var orderObject = {
     custProductSelected: productSelected,
     custFilePath: filePath,
@@ -46,8 +45,9 @@ function harvestProductForm(event){
     custZip: zip,
     custCard: card,
   };
-
-  this.reset();
+  customerCart.push(orderObject)
+  localStorage.cartArray = JSON.stringify(customerCart);
+  event.target.reset();
 }
 
-var submitStore = document.getElementById('form').addEventListener('submit', harvestStore);
+var submitStore = document.getElementById('form').addEventListener('submit', harvestProductForm);

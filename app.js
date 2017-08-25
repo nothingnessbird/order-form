@@ -1,20 +1,22 @@
 'use strict';
 
-var productFiles = ['bag.jpg','banana.jpg','bathroom.jpg','boots.jpg','breakfast.jpg','bubblegum.jpg','chair.jpg','cthulhu.jpg','dog-duck.jpg','dragon.jpg','pen.jpg','pet-sweep.jpg','scissors.jpg','shark.jpg','sweep.png','tauntaun.jpg','unicorn.jpg','usb.gif','water-can.jpg','wine-glass.jpg'];
+var productFiles = [['bag.jpg', 'R2D2 Luggage Bag'],['banana.jpg','Banana Slicer'] ,['bathroom.jpg','While Pooping Tablet'],['boots.jpg','Toeless Rain Boots'],['breakfast.jpg','Combo Breakfast Machine'],['bubblegum.jpg','Meatball Bubblegum'],['chair.jpg','Bubble Bottom Chair'],['cthulhu.jpg','ph\'nglui mglw\'nafh Cthulhu R\'lyeh wgah\'nagl fhtagn'],['dog-duck.jpg','Duck Beak Dog Muzzle'],['dragon.jpg','Dragon Meat'],['pen.jpg','Filthy Pen Utensils'],['pet-sweep.jpg','Animal Abuse'],['scissors.jpg','Pizza Scissors'],['shark.jpg','Shark Attack Sleeping Bag'],['sweep.png','Child Abuse'],['tauntaun.jpg','Stolen ThinkGeek Taun Taun Sleeping Bag'],['unicorn.jpg','Unicorn Meat'],['usb.gif','Wiggly USB Tentacle'],['water-can.jpg','Self Watering Can'],['wine-glass.jpg','Spill On Yourself Wine Glass']];
 var customerCart = [];
 
-function Product(name,fileLink) {
+function Product(name,fileLink,description) {
   this.name = name;
   this.fileLink = fileLink;
+  this.description = description;
 };
 
 var productArray = [];
 
 var productMaker = function () {
   for (var i = 0; i < productFiles.length; i++) {
-    var fileNamer = productFiles[i].slice(0,-4);
-    var fileLinker = productFiles[i];
-    productArray.push(new Product(fileNamer,fileLinker));
+    var fileNamer = productFiles[i][0].slice(0,-4);
+    var fileLinker = productFiles[i][0];
+    var descriptionMaker = productFiles[i][1];
+    productArray.push(new Product(fileNamer,fileLinker,descriptionMaker));
   }
 };
 
@@ -22,7 +24,7 @@ productMaker();
 
 function harvestProductForm(event){
   event.preventDefault();
-  var productSelected = event.target.elements.select.value;
+  var productSelected = document.getElementById('drop-down').value;
   var productNum = event.target.elements.productNum.value;
   var custName = event.target.elements.name.value;
   var street = event.target.elements.street.value;
@@ -33,11 +35,14 @@ function harvestProductForm(event){
   for (var i = 0; i < productArray.length; i++) {
     if (productSelected === productArray[i].name) {
       var filePath = productArray[i].fileLink;
+      var productDescription = productArray[i].description;
     }
   }
   var orderObject = {
     custProductSelected: productSelected,
+    description: productDescription,
     custFilePath: filePath,
+    custQuantity: productNum,
     customer: custName,
     custStreet: street,
     custCity: city,
@@ -45,35 +50,16 @@ function harvestProductForm(event){
     custZip: zip,
     custCard: card,
   };
-  customerCart.push(orderObject)
+  if (localStorage.cartArray) {
+    customerCart = JSON.parse(localStorage.cartArray);
+  }
+  customerCart.push(orderObject);
   localStorage.cartArray = JSON.stringify(customerCart);
   event.target.reset();
 }
 
-// orderObject.street
+var submitStore = document.getElementById('form');
+submitStore.addEventListener('submit', harvestProductForm);
 
-function renderCartImage () {
-  for (var i = 0; i < productArray.length; i ++){
-    var imageSection = document.getElementById('cart');
-    var divSection = document.createElement('div');
-    imageSection.appendChild(divSection);
-    var customerCart = document.createElement('img');
-    customerCart.src = 'img/' + productArray[i].fileLink;
-    divSection.appendChild(customerCart);
-      }
-    };
-    renderCartImage();
-    var qty = document.createElement('p');
-    // var trashCan = document.createElement('img');
-    // itemPic.setAttribute('src', productArray[i]);
-    // itemPic.id = productArray[i];
-    // trashCan.src = 'img/trashCan.png';
-    // box.appendChild(itemPic);
-    // qty.innerText = 'Qty: ' + qtyArray[i];
-    // box.appendChild(qty);
-    // box.appendChild(trashCan);
-    // position1.appendChild(box);
-    // box.id = productArray[i];
-    // itemPic.addEventListener('click',removeItem);
-
-var submitStore = document.getElementById('form').addEventListener('submit', harvestProductForm);
+//make select with javascript
+//

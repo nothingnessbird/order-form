@@ -45,12 +45,10 @@ function harvestProductForm(event){
     custZip: zip,
     custCard: card,
   };
-  customerCart.push(orderObject)
+  customerCart.push(orderObject);
   localStorage.cartArray = JSON.stringify(customerCart);
   event.target.reset();
 }
-
-// orderObject.street
 
 function renderCartImage () {
   for (var i = 0; i < productArray.length; i ++){
@@ -60,10 +58,10 @@ function renderCartImage () {
     var customerCart = document.createElement('img');
     customerCart.src = 'img/' + productArray[i].fileLink;
     divSection.appendChild(customerCart);
-      }
-    };
-    renderCartImage();
-    var qty = document.createElement('p');
+  }
+};
+renderCartImage();
+var qty = document.createElement('p');
     // var trashCan = document.createElement('img');
     // itemPic.setAttribute('src', productArray[i]);
     // itemPic.id = productArray[i];

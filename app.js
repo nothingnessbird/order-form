@@ -63,7 +63,7 @@ function renderCartImage () {
       }
     };
     renderCartImage();
-    // var qty = document.createElement('p');
+    var qty = document.createElement('p');
     // var trashCan = document.createElement('img');
     // itemPic.setAttribute('src', productArray[i]);
     // itemPic.id = productArray[i];

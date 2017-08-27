@@ -1,12 +1,36 @@
-#return-index-page {
+header {
+  width: 90%;
+  height: 10%;
+  margin: auto;
+  background-image: url('img/bus.jpg');
+  background-size: cover;
+}
+h1 {
   color: white;
-  background-color: grey;
-  height: 30px;
-  width: 30px;
-  text-decoration: none;
+  background-color: rgba(112, 94, 94, 0.7);
+  font-size: 5em;
+  font-style: normal;
+  font-family: sans-serif;
+  font-weight: bold;
   text-align: center;
 }
-
-.return-area {
-  
+a {
+  text-decoration: none;
+  color: rgb(147, 17, 237);
+}
+a:hover {
+  font-weight: bold;
+  color: rgb(15, 235, 228);
+  font-size: 3em;
+}
+input {
+  margin: 20px 10px;
+  border: 1px solid black;
+  text-align: center;
+}
+#form-div {
+  width: 40%;
+  text-align: right;
+  margin: auto;
+  font-size: 1.5em;
 }

@@ -34,9 +34,3 @@ function trashIt (event) {
   localStorage.cartArray = JSON.stringify(cartItems);
   renderCart();
 };
-//
-// var trashBucket = document.getElementsByClassName('trash');
-//
-// for (var i = 0; i < trashBucket.length; i++) {
-//   trashBucket[i].addEventListener('click',trashIt);
-// };

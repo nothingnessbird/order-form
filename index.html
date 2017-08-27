@@ -7,10 +7,10 @@
   </head>
   <body>
     <header>
-      <a href="cart.html">Your Shopping Cart</a>
+      <h1>BUSMALL</h1>
     </header>
-    <div id="form">
-      <form id="order-form" action="index.html" method="post">
+    <div id="form-div">
+      <form id="form" action="index.html" method="post">
         <fieldset id="product-selection">
           <legend>Select a Product</legend>
           <p id="product-dropdown">
@@ -23,14 +23,14 @@
                <option value="breakfast">Combo Breakfast Machine</option>
                <option value="bubblegum">Meatball Bubblegum</option>
                <option value="chair">Bubble Bottom Chair</option>
-               <option value="cthulhu">Cthulhu Eating Figure</option>
+               <option value="cthulhu">ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn</option>
                <option value="dog-duck">Duck Beak Dog Muzzle</option>
                <option value="dragon">Dragon Meat</option>
-               <option value="pen">Pen Utensils</option>
-               <option value="pet-sweep">Pet Paw Sweeper</option>
+               <option value="pen">Filthy Pen Utensils</option>
+               <option value="pet-sweep">Animal Abuse</option>
                <option value="scissors">Pizza Scissors</option>
                <option value="shark">Shark Attack Sleeping Bag</option>
-               <option value="sweep">Baby Mop</option>
+               <option value="sweep">Child Abuse</option>
                <option value="tauntaun">Stolen ThinkGeek Taun Taun Sleeping Bag</option>
                <option value="unicorn">Unicorn Meat</option>
                <option value="usb">Wiggly USB Tentacle</option>
@@ -43,22 +43,23 @@
           </p>
         </fieldset>
         <fieldset id="user-info">
-          <input required type="text" name="name" id="text">
           <label for="name">Full Name</label>
-          <input required type="text" name="street" id="text">
+          <input required type="text" name="name" id="text"> <br>
           <label for="street">Street</label>
-          <input required type="text" name="city" id="text">
+          <input required type="text" name="street" id="text"> <br>
           <label for="city">City</label>
-          <input required type="text" name="state" id="text" maxlength="2">
+          <input required type="text" name="city" id="text"> <br>
           <label for="state">State</label>
-          <input required type="text" name="zip" id="text" maxlength="5">
+          <input required type="text" name="state" id="text" maxlength="2"> <br>
           <label for="zip">Zip Code</label>
-          <input type="number" name="card" id="card" max="9999999999999999" placeholder="xxxx xxxx xxxx xxxx">
+          <input required type="text" name="zip" id="text" maxlength="5"> <br>
           <label for="card">Credit Card</label>
+          <input type="number" name="card" id="card" max="9999999999999999" placeholder="xxxx xxxx xxxx xxxx"> <br>
         </fieldset>
         <input type="submit" value="Add to Cart!" id="submit" />
       </form>
     </div>
+    <a href="cart.html">Your Shopping Cart</a>
   </body>
   <script type="text/javascript" src="app.js"></script>
 </html>

@@ -60,6 +60,3 @@ function harvestProductForm(event){
 
 var submitStore = document.getElementById('form');
 submitStore.addEventListener('submit', harvestProductForm);
-
-//make select with javascript
-//

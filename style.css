@@ -23,3 +23,14 @@ a:hover {
   color: rgb(15, 235, 228);
   font-size: 3em;
 }
+input {
+  margin: 20px 10px;
+  border: 1px solid black;
+  text-align: center;
+}
+#form-div {
+  width: 40%;
+  text-align: right;
+  margin: auto;
+  font-size: 1.5em;
+}
